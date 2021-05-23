@@ -1,5 +1,6 @@
 package domain;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +18,7 @@ public class Task {
     public LocalDateTime endDateTime;
     public TaskNotificationSeries taskNotificationSeries;
     public List<TaskAssignee> assigneeList;
-    public boolean completed = false;
+    public boolean completed;
 
     public Task(String id,
                 String tittle,
@@ -90,6 +91,13 @@ public class Task {
         if (nonNull(taskAssignee)){
             assigneeList.add(taskAssignee);
         }
+    }
+
+    public void completeTask(Task task) {
+        if(!task.isCompleted()) {
+            this.setCompleted(true);
+        }
+        throw new IllegalStateException("Can not complete already completedTask");
     }
 
     public void removeTaskAssignee(TaskAssignee taskAssignee) {
