@@ -10,6 +10,8 @@ public class TaskAssignee {
     private AssigneeType assigneeType;
     private TaskNotificationSeries taskNotificationSeries;
 
+    public TaskAssignee() {}
+
     public TaskAssignee(String id,
                         String name,
                         String phoneNumber,
