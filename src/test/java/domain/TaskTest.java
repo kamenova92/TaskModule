@@ -65,4 +65,12 @@ class TaskTest {
         assertTrue(testee.getAssigneeList().contains(newAssignee));
     }
 
+    @Test
+    public void test_addNewTaskAssignee_shouldContains_newAssignee() {
+        TaskAssignee newAssignee = new TaskAssignee("ID2", "New Name", "123", RESIDENT, notificationSeries);
+
+        List<TaskAssignee> newTaskList = testee.addTaskAssignee(newAssignee);
+        assertTrue(newTaskList.contains(newAssignee));
+    }
+
 }
