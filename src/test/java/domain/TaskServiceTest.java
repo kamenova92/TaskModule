@@ -1,4 +1,4 @@
-package domain
+package domain;
 import domain.dtos.TaskDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
