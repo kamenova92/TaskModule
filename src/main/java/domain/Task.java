@@ -87,10 +87,12 @@ public class Task {
         this.assigneeList = assigneeList;
     }
 
-    public void addTaskAssignee(TaskAssignee taskAssignee) {
+    public List<TaskAssignee> addTaskAssignee(TaskAssignee taskAssignee) {
+        List<TaskAssignee> taskAssigneeLis = new ArrayList<>();
         if (nonNull(taskAssignee)){
-            assigneeList.add(taskAssignee);
+            taskAssigneeLis.add(taskAssignee);
         }
+        return taskAssigneeLis;
     }
 
     public void completeTask(Task task) {

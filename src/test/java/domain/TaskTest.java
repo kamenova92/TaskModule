@@ -6,14 +6,14 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static domain.enums.AssigneeType.RESIDENT;
 import static domain.enums.CalendarRepeatUnit.DAYS;
 import static java.time.LocalDateTime.now;
 import static java.util.Collections.singletonList;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -66,12 +66,11 @@ class TaskTest {
     }
 
     @Test
-    public void test_completeTask_taskIsCompleted_shoudReturnFalse() {
-        Task completedTask = new Task("", "", now().minusDays(2), now().minusDays(1),notificationSeries, Collections.singletonList(taskAssignee));
-        completedTask.setCompleted(true);
+    public void test_addNewTaskAssignee_shouldContains_newAssignee() {
+        TaskAssignee newAssignee = new TaskAssignee("ID2", "New Name", "123", RESIDENT, notificationSeries);
 
-        Throwable exception = assertThrows(IllegalStateException.class, () -> testee.completeTask(completedTask));
-        assertEquals("Can not complete already completedTask", exception.getMessage());
+        List<TaskAssignee> newTaskList = testee.addTaskAssignee(newAssignee);
+        assertTrue(newTaskList.contains(newAssignee));
     }
 
 }

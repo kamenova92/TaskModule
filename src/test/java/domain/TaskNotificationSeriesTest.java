@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @ExtendWith(MockitoExtension.class)
-public class TaskNotifcationSeriesTest {
+public class TaskNotificationSeriesTest {
 
     @InjectMocks TaskNotificationSeries testee;
 
